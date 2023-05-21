@@ -2,6 +2,6 @@
 
 This is my solution to freeCodeCamps Frontend Certificate Project, creating a 25 + 5 clock.
 
-# Overview
+## Overview
 
 This project has been started and is ongoing.
