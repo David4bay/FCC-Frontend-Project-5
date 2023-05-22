@@ -7,6 +7,7 @@ import Header from "../Header/Header";
 import './MainContainer.scss';
 
 function MainContainer() {
+    const time = 25;
     const [bigTime, setBigTime] = useState(25);
     const [breakTime, setBreakTime] = useState(5);
     const smallTime = '00';
@@ -18,14 +19,15 @@ function MainContainer() {
     return (
         <div className="main-container">
             <Header />
-            <Aside 
-            minutes={minutes} 
+            <Aside  
             setMinutes={setMinutes}
             breakPeriod={breakPeriod} 
             setBreakPeriod={setBreakPeriod}
             isPlaying={isPlaying}
+            setBreakTime={setBreakTime}
             bigTime={bigTime}
             setBigTime={setBigTime}
+            time={time}
             />
             <Clock 
             minutes={minutes}
@@ -44,8 +46,10 @@ function MainContainer() {
             setBreakPeriod={setBreakPeriod}
             setSeconds={setSeconds}
             minutes={minutes}
+            setBigTime={setBigTime}
             smallTime={smallTime}
             seconds={seconds}
+            time={time}
             />
             <Footer />
             <div className="styling" />

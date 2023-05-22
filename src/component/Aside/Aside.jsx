@@ -3,7 +3,7 @@ import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import './Aside.scss';
 
-function Aside({minutes, setMinutes, breakPeriod, setBreakPeriod, isPlaying, bigTime, setBigTime}) {
+function Aside({setMinutes, breakPeriod, setBreakPeriod, isPlaying, bigTime, setBigTime, setBreakTime}) {
 
     const [syncTimer, setSyncTimer] = useState(false);
 
@@ -50,12 +50,12 @@ function Aside({minutes, setMinutes, breakPeriod, setBreakPeriod, isPlaying, big
 
     const incrementBreak = e => {
         e.preventDefault();
-        setBreakPeriod(breakPeriod => breakPeriod > 59 ? 60 : breakPeriod + 1)
+        setBreakPeriod(breakPeriod => breakPeriod > 59 ? setBreakTime(60) : breakPeriod + 1);
     }
 
     const decrementBreak = e => {
         e.preventDefault();
-        setBreakPeriod(breakPeriod => breakPeriod < 2 ? 1 : breakPeriod - 1)
+        setBreakPeriod(breakPeriod => breakPeriod < 2 ? setBreakTime(1) : breakPeriod - 1);
     }
 
     return (

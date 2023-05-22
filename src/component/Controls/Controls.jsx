@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { FaPlay, FaPause, FaUndo } from 'react-icons/fa';
 import './Controls.scss';
 
-function Controls({isPlaying, setIsPlaying, setMinutes, setBreakPeriod, bigTime, breakTime, setSeconds, smallTime, minutes, seconds}) {
+function Controls({isPlaying, setIsPlaying, setMinutes, setBreakPeriod, breakTime, setSeconds, smallTime, minutes, seconds, time, setBigTime}) {
 
     const soundRef = useRef(null);
 
@@ -28,7 +28,8 @@ function Controls({isPlaying, setIsPlaying, setMinutes, setBreakPeriod, bigTime,
 
     const resetHandler = e => {
         e.preventDefault();
-        setMinutes(bigTime);
+        setMinutes(time);
+        setBigTime(time);
         setBreakPeriod(breakTime);
         setSeconds(smallTime);
         setIsPlaying(false);
