@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import Aside from "../Aside/Aside";
 import Clock from "../Clock/Clock";
@@ -24,7 +25,6 @@ function MainContainer() {
             breakPeriod={breakPeriod} 
             setBreakPeriod={setBreakPeriod}
             isPlaying={isPlaying}
-            setBreakTime={setBreakTime}
             bigTime={bigTime}
             setBigTime={setBigTime}
             time={time}

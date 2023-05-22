@@ -3,7 +3,7 @@ import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import './Aside.scss';
 
-function Aside({setMinutes, breakPeriod, setBreakPeriod, isPlaying, bigTime, setBigTime, setBreakTime}) {
+function Aside({setMinutes, breakPeriod, setBreakPeriod, isPlaying, bigTime, setBigTime}) {
 
     const [syncTimer, setSyncTimer] = useState(false);
 
@@ -11,6 +11,14 @@ function Aside({setMinutes, breakPeriod, setBreakPeriod, isPlaying, bigTime, set
         if (bigTime < 2) {
             setBigTime(1);
             setMinutes(bigTime);
+        }
+
+        if (breakPeriod < 2) {
+            setBreakPeriod(1);
+        }
+
+        if (breakPeriod > 59) {
+            setBreakPeriod(60);
         }
         
         if (bigTime > 59) {
@@ -26,7 +34,7 @@ function Aside({setMinutes, breakPeriod, setBreakPeriod, isPlaying, bigTime, set
             setSyncTimer(false);
         }
 
-    }, [bigTime, setBigTime, setMinutes, syncTimer])
+    }, [bigTime, setBigTime, setMinutes, syncTimer, breakPeriod, setBreakPeriod])
 
     const incrementSession = e => {
         e.preventDefault();
@@ -50,12 +58,16 @@ function Aside({setMinutes, breakPeriod, setBreakPeriod, isPlaying, bigTime, set
 
     const incrementBreak = e => {
         e.preventDefault();
-        setBreakPeriod(breakPeriod => breakPeriod > 59 ? setBreakTime(60) : breakPeriod + 1);
+        if (isPlaying) {
+            setBreakPeriod(breakPeriod + 1);
+        }
     }
 
     const decrementBreak = e => {
         e.preventDefault();
-        setBreakPeriod(breakPeriod => breakPeriod < 2 ? setBreakTime(1) : breakPeriod - 1);
+        if (isPlaying) {
+            setBreakPeriod(breakPeriod - 1);
+        }
     }
 
     return (
