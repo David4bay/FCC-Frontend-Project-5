@@ -1,0 +1,27 @@
+.main-container {
+    display: grid;
+    padding: 35px;
+    border: 1px solid #000;
+    box-shadow: -15px 15px 0px 1px;
+    border-radius: 5px;
+    text-align: center;
+    gap: 27px;
+    position: relative;
+    transition: all 0.25s ease-out;
+}
+
+.main-container:hover {
+    transform: translate(4px, -5px);
+    box-shadow: -20px 20px 1px 2px;
+}
+
+.styling {
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: hsla(100, 0%, 100%, 0.23);
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
