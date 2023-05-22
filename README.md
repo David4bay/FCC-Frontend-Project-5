@@ -4,4 +4,12 @@ This is my solution to freeCodeCamps Frontend Certificate Project, creating a 25
 
 ## Overview
 
-This project has been started and is ongoing.
+This was built with ReactJS, an unconventional Pomodoro App.
+
+### Live Site
+
+-[Live Site]()
+
+### Screenshot 
+
+![screenshot](/src/assets/screenshot.PNG);
